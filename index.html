@@ -8,139 +8,93 @@
 </head>
 <body>
 
-    <!-- HEADER / NAVEGACIÓN -->
-    <header class="navbar">
-        <div class="logo-container" style="display: flex; align-items: center; gap: 0; padding: 0;">
-            <!-- SVG de la P con Geometría de Obturador de Cámara Exacta y Mástil Largo -->
-            <svg class="logo-svg" viewBox="10 10 75 115" xmlns="http://www.w3.org/2000/svg" style="width: 42px; height: 56px; display: block; margin: 0;">
+    <!-- NAVBAR -->
+    <header class="navbar" style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem;">
+        <div class="logo-container" style="display: flex; align-items: center; gap: 0;">
+            <svg viewBox="10 10 75 115" style="width: 42px; height: 56px; display: block;">
                 <defs>
-                    <!-- Gradiente continuo para los pliegues metálicos del logo -->
                     <linearGradient id="pliegue-gradiente" x1="0%" y1="100%" x2="100%" y2="0%">
-                        <stop offset="0%" stop-color="var(--acento-morado)" />
-                        <stop offset="60%" stop-color="#a855f7" />
-                        <stop offset="100%" stop-color="var(--acento-amarillo)" />
+                        <stop offset="0%" stop-color="#7c4dff" />
+                        <stop offset="100%" stop-color="#facc15" />
                     </linearGradient>
                 </defs>
-                
-                <!-- Contenedor general con bordes internos oscuros para separar los pliegues tridimensionales -->
-                <g stroke="var(--fondo-principal)" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round">
-                    
-                    <!-- 1. MÁSTIL IZQUIERDO LARGO (Base de la P tal cual la imagen) -->
-                    <path d="M 16 34 L 34 44 L 34 118 L 16 108 Z" fill="var(--acento-morado)" />
-                    
-                    <!-- 2. PLIEGUE SUPERIOR IZQUIERDO -->
-                    <path d="M 16 34 L 50 14 L 50 44 L 34 44 Z" fill="url(#pliegue-gradiente)" opacity="0.95" />
-                    
-                    <!-- 3. PLIEGUE SUPERIOR DERECHO -->
-                    <path d="M 50 14 L 84 34 L 66 44 L 50 44 Z" fill="var(--acento-amarillo)" />
-                    
-                    <!-- 4. PLIEGUE LATERAL DERECHO -->
-                    <path d="M 84 34 L 84 74 L 66 64 L 66 44 Z" fill="var(--acento-amarillo)" opacity="0.9" />
-                    
-                    <!-- 5. PLIEGUE INFERIOR DERECHO -->
+                <g stroke="#0d0d11" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round">
+                    <path d="M 16 34 L 34 44 L 34 118 L 16 108 Z" fill="#7c4dff" />
+                    <path d="M 16 34 L 50 14 L 50 44 L 34 44 Z" fill="url(#pliegue-gradiente)" />
+                    <path d="M 50 14 L 84 34 L 66 44 L 50 44 Z" fill="#facc15" />
+                    <path d="M 84 34 L 84 74 L 66 64 L 66 44 Z" fill="#facc15" opacity="0.9" />
                     <path d="M 84 74 L 50 94 L 50 64 L 66 64 Z" fill="url(#pliegue-gradiente)" />
-                    
-                    <!-- 6. CONECTOR CENTRAL (Cierra el Espacio del Obturador) -->
                     <path d="M 50 64 L 34 54 L 34 44 L 50 44 Z" fill="url(#pliegue-gradiente)" opacity="0.8" />
-                    
                 </g>
             </svg>
-            <!-- Texto ETRUCS pegado al ras del diseño del isotipo -->
-            <span class="logo-text" style="margin-left: 0px; padding-left: 0px; line-height: 1; display: inline-block;">ETRUCS</span>
+            <span class="logo-text" style="font-weight: 900; font-size: 1.8rem; color: #fff; letter-spacing: 1px;">ETRUCS</span>
         </div>
-
-        <nav class="nav-links">
+        <nav class="nav-links" style="display: flex; gap: 1.5rem; align-items: center;">
             <a href="#sobre-mi" class="nav-item">Biografía</a>
             <a href="#mis-videos" class="nav-item">Mis Videos</a>
             <a href="#contacto" class="nav-item">Contacto</a>
-            <!-- Interruptor de Tema Oscuro/Claro -->
-            <button id="theme-toggle" class="toggle-btn" aria-label="Cambiar tema">🌙</button>
+            <button id="theme-toggle" class="toggle-btn" style="background: none; border: none; cursor: pointer; font-size: 1.2rem;">🌙</button>
         </nav>
     </header>
 
-    <!-- FONDO ANIMADO LÍQUIDO -->
-    <div class="background-glow"></div>
-
-    <!-- SECCIÓN HERO (BIENVENIDA) -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Hola, soy <span class="text-gradient">PetruCS</span></h1>
-            <p>Creador de contenido, vlogger y apasionado por el diseño digital.</p>
-            <a href="#mis-videos" class="btn-primary">Ver mi trabajo</a>
-        </div>
-    </section>
-
-    <!-- SECCIÓN DE YOUTUBE (VINCULADA CORRECTAMENTE) -->
-    <section id="mis-videos" class="videos-section">
+    <!-- SECCIÓN DE MIS VIDEOS -->
+    <section id="mis-videos" style="padding: 3rem 2rem; max-width: 1200px; margin: 0 auto;">
         
-        <!-- Cabecera Horizontal Compacta -->
-        <div class="youtube-profile-header horizontal">
-            <!-- Icono de perfil pequeño (60px) -->
-            <div class="channel-avatar small">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <!-- CABECERA: Perfil chiquito, nombre al lado, suscríbete abajo -->
+        <div class="youtube-profile-header" style="display: flex; align-items: center; gap: 15px; margin-bottom: 2rem;">
+            <!-- Perfil Chiquito -->
+            <div class="channel-avatar" style="width: 60px; height: 60px; flex-shrink: 0; border-radius: 50%; overflow: hidden;">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
                     <circle cx="50" cy="50" r="48" fill="#7c4dff" />
                     <text x="50%" y="54%" font-size="40" font-weight="900" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">P</text>
                 </svg>
             </div>
             
-            <!-- Bloque Unificado de Información y Botón de Suscribirse -->
-            <div class="channel-main-info">
-                <div class="channel-text">
-                    <h2 class="channel-name">YO SOY PETRUCS VLOGS</h2>
-                    <p class="channel-stats">@PETRUCSVLOGS_OFICIAL • Exploración Urbana</p>
-                </div>
-                <!-- Botón de Suscripción Oficial con tu nuevo link -->
-                <a href="https://www.youtube.com/@PETRUCSVLOGS_OFICIAL" target="_blank" class="btn-subscribe">
-                    <span class="play-icon">▶</span> Suscribirse
+            <!-- Nombre y Suscríbete abajo -->
+            <div class="channel-info-block" style="display: flex; flex-direction: column; gap: 5px; text-align: left;">
+                <h2 class="channel-name" style="margin: 0; font-size: 1.4rem; color: #fff; font-weight: 700; line-height: 1.2;">YO SOY PETRUCS VLOGS</h2>
+                <a href="https://www.youtube.com/@PETRUCSVLOGS_OFICIAL" target="_blank" class="btn-subscribe" style="display: inline-flex; align-items: center; width: fit-content; background: #cc0000; color: #ffffff; padding: 5px 12px; border-radius: 18px; font-weight: bold; text-decoration: none; font-size: 0.85rem;">
+                    <span style="margin-right: 5px;">▶</span> Suscribirse
                 </a>
             </div>
         </div>
 
-        <div class="separator-line"></div>
+        <div style="height: 1px; background: #333; margin-bottom: 2rem;"></div>
 
-        <h3 class="videos-title">Videos Destacados</h3>
+        <h3 class="videos-title" style="color: #fff; margin-bottom: 1.5rem; font-size: 1.5rem;">Videos Destacados</h3>
 
-        <!-- Contenedor de Videos Oficiales (Cuadrícula Estructurada) -->
-        <div class="videos-grid">
-            <!-- Tarjeta 1: Cine Abandonado (17:10) -->
-            <div class="video-card youtube" onclick="window.open('https://www.youtube.com/watch?v=J3mS32g3V7g', '_blank')">
-                <div class="video-thumbnail">
-                    <div class="platform-badge">17:10</div>
-                    <img src="https://img.youtube.com/vi/J3mS32g3V7g/maxresdefault.jpg" alt="Miniatura EXPLORANDO UN CINE ABANDONADO">
-                    <div class="play-overlay">▶</div>
+        <!-- CUADRÍCULA DE VIDEOS (Usa los dos links que me pasaste) -->
+        <div class="videos-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+            
+            <!-- Tarjeta Video 1 -->
+            <div class="video-card" onclick="window.open('https://youtu.be/kJlbfkOOVSw', '_blank')" style="background: #1a1a1e; border-radius: 12px; overflow: hidden; cursor: pointer;">
+                <div style="position: relative; width: 100%; aspect-ratio: 16/9;">
+                    <img src="https://img.youtube.com/vi/kJlbfkOOVSw/maxresdefault.jpg" alt="Miniatura Video 1" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
-                <div class="video-info">
-                    <h3>EXPLORANDO UN CINE ABANDONADO (AL FINAL SE ESCUCHA ALGO)</h3>
-                    <p>Acompáñame a explorar las instalaciones de este cine abandonado en una aventura urbana donde todo dio un giro inesperado al final.</p>
-                    <div class="video-stats">
-                        <span>👁️ Ver en YouTube</span>
-                    </div>
+                <div style="padding: 1.2rem;">
+                    <h3 style="font-size: 1.1rem; color: #fff; margin: 0 0 0.5rem 0;">EXPLORANDO UN CINE ABANDONADO</h3>
+                    <p style="font-size: 0.9rem; color: #aaa; margin: 0;">👁️ Ver en YouTube</p>
                 </div>
             </div>
 
-            <!-- Tarjeta 2: Ruinas de mi antiguo trabajo (10:39) -->
-            <div class="video-card youtube" onclick="window.open('https://www.youtube.com/watch?v=XvK_K7Xf_9M', '_blank')">
-                <div class="video-thumbnail">
-                    <div class="platform-badge">10:39</div>
-                    <img src="https://img.youtube.com/vi/XvK_K7Xf_9M/maxresdefault.jpg" alt="Miniatura EXPLORÉ LAS RUINAS DE MI ANTIGUO TRABAJO">
-                    <div class="play-overlay">▶</div>
+            <!-- Tarjeta Video 2 -->
+            <div class="video-card" onclick="window.open('https://youtu.be/Zpigrf6mVH8', '_blank')" style="background: #1a1a1e; border-radius: 12px; overflow: hidden; cursor: pointer;">
+                <div style="position: relative; width: 100%; aspect-ratio: 16/9;">
+                    <img src="https://img.youtube.com/vi/Zpigrf6mVH8/maxresdefault.jpg" alt="Miniatura Video 2" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
-                <div class="video-info">
-                    <h3>"EXPLORÉ LAS RUINAS DE MI ANTIGUO TRABAJO Y ESTO PASÓ"</h3>
-                    <p>Regresé a las ruinas del lugar donde solía trabajar. Un recorrido lleno de nostalgia y pasillos completamente vacíos.</p>
-                    <div class="video-stats">
-                        <span>👁️ Ver en YouTube</span>
-                    </div>
+                <div style="padding: 1.2rem;">
+                    <h3 style="font-size: 1.1rem; color: #fff; margin: 0 0 0.5rem 0;">EXPLORÉ LAS RUINAS DE MI ANTIGUO TRABAJO</h3>
+                    <p style="font-size: 0.9rem; color: #aaa; margin: 0;">👁️ Ver en YouTube</p>
                 </div>
             </div>
+
         </div>
     </section>
 
-    <!-- SCRIPT INTERACTIVO PARA EL CAMBIO DE MODO -->
+    <!-- SCRIPT INTERACTIVO TEMA -->
     <script>
         const toggleBtn = document.getElementById('theme-toggle');
         const htmlElement = document.documentElement;
-
         toggleBtn.addEventListener('click', () => {
             const currentTheme = htmlElement.getAttribute('data-theme');
             if (currentTheme === 'dark') {
