@@ -10,9 +10,9 @@
 
     <!-- HEADER / NAVEGACIÓN -->
     <header class="navbar">
-        <div class="logo-container">
-            <!-- SVG Ajustado en su caja de visualización para eliminar el espacio muerto derecho -->
-            <svg class="logo-svg" viewBox="10 10 80 115" xmlns="http://www.w3.org/2000/svg" style="width: 36px; height: 48px;">
+        <div class="logo-container" style="display: flex; align-items: center; gap: 0;">
+            <!-- SVG de la P Geométrica Idéntica, Proporcional y con Mástil Largo -->
+            <svg class="logo-svg" viewBox="10 10 75 110" xmlns="http://www.w3.org/2000/svg" style="width: 40px; height: 55px; display: block;">
                 <defs>
                     <linearGradient id="gradient-morado-amarillo" x1="0%" y1="100%" x2="100%" y2="0%">
                         <stop offset="0%" stop-color="var(--acento-morado)" />
@@ -20,32 +20,34 @@
                     </linearGradient>
                 </defs>
                 
-                <!-- Grupo con los pliegues geométricos del hexágono estilo obturador -->
-                <g stroke="var(--fondo-principal)" stroke-width="1.5" stroke-linejoin="round">
-                    <!-- Segmento Izquierdo Superior -->
-                    <path d="M 15 35 L 50 15 L 50 45 L 28 58 Z" fill="url(#gradient-morado-amarillo)" opacity="0.95" />
-                    <!-- Segmento Superior Derecho -->
-                    <path d="M 50 15 L 85 35 L 63 48 L 50 45 Z" fill="var(--acento-amarillo)" />
-                    <!-- Segmento Medio Derecho -->
-                    <path d="M 85 35 L 85 75 L 63 62 L 63 48 Z" fill="var(--acento-amarillo)" opacity="0.85" />
-                    <!-- Segmento Inferior Derecho -->
-                    <path d="M 85 75 L 50 95 L 50 65 L 63 62 Z" fill="url(#gradient-morado-amarillo)" />
-                    <!-- Segmento Central / Pliegue interno -->
-                    <path d="M 50 65 L 28 58 L 50 45 L 63 48 L 63 62 Z" fill="none" />
+                <g stroke="var(--fondo-principal)" stroke-width="1" stroke-linejoin="round">
+                    <!-- MÁSTIL IZQUIERDO ALARGADO (Una sola pieza limpia hacia abajo) -->
+                    <path d="M 15 35 L 32 45 L 32 115 L 15 105 Z" fill="var(--acento-morado)" />
                     
-                    <!-- MÁSTIL IZQUIERDO ALARGADO -->
-                    <path d="M 15 35 L 28 42 L 28 120 L 15 112 Z" fill="var(--acento-morado)" />
+                    <!-- Pliegue Superior Izquierdo -->
+                    <path d="M 15 35 L 48 16 L 48 45 L 32 45 Z" fill="url(#gradient-morado-amarillo)" opacity="0.95" />
+                    
+                    <!-- Pliegue Superior Derecho -->
+                    <path d="M 48 16 L 80 35 L 62 45 L 48 45 Z" fill="var(--acento-amarillo)" />
+                    
+                    <!-- Pliegue Medio Derecho -->
+                    <path d="M 80 35 L 80 70 L 62 60 L 62 45 Z" fill="var(--acento-amarillo)" opacity="0.85" />
+                    
+                    <!-- Pliegue Inferior Derecho -->
+                    <path d="M 80 70 L 48 89 L 48 60 L 62 60 Z" fill="url(#gradient-morado-amarillo)" />
+                    
+                    <!-- Pliegue Conector Central Interno -->
+                    <path d="M 48 60 L 32 53 L 32 45 L 48 45 Z" fill="url(#gradient-morado-amarillo)" opacity="0.7" />
                 </g>
             </svg>
-            <!-- Margen negativo para jalar el texto directamente hacia el logo geométrico -->
-            <span class="logo-text" style="margin-left: -4px;">ETRUCS</span>
+            <!-- Texto pegado inmediatamente sin separaciones muertas -->
+            <span class="logo-text" style="margin-left: 2px; line-height: 1; display: inline-block;">ETRUCS</span>
         </div>
 
         <nav class="nav-links">
             <a href="#sobre-mi" class="nav-item">Biografía</a>
             <a href="#mis-videos" class="nav-item">Mis Videos</a>
             <a href="#contacto" class="nav-item">Contacto</a>
-            <!-- Conmutador de Modo Claro/Oscuro -->
             <button id="theme-toggle" class="toggle-btn" aria-label="Cambiar tema">🌙</button>
         </nav>
     </header>
