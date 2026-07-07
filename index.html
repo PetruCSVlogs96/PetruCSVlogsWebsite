@@ -9,16 +9,34 @@
 <body>
 
     <!-- HEADER / NAVEGACIÓN -->
+<!-- HEADER / NAVEGACIÓN CORREGIDO (Palito de la P alargado) -->
     <header class="navbar">
         <div class="logo-container">
-            <!-- El Hexágono Geométrico Interconectado (Corregido Oficial) -->
-            <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <!-- SVG Ajustado para alargar la base de la P geométrica -->
+            <svg class="logo-svg" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg" style="width: 38px; height: 45px;">
                 <defs>
-                    <linearGradient id="aperture-gradient" x1="0%" y1="100%" x2="100%" y2="0%">
+                    <linearGradient id="gradient-logo" x1="0%" y1="0%" x2="100%" y2="100%">
                         <stop offset="0%" stop-color="var(--acento-morado)" />
                         <stop offset="100%" stop-color="var(--acento-amarillo)" />
                     </linearGradient>
                 </defs>
+                <!-- Cuerpo poligonal superior de la P -->
+                <path d="M 45 15 L 75 32 L 75 68 L 45 85 L 15 68 L 15 32 Z" fill="none" stroke="url(#gradient-logo)" stroke-width="12" stroke-linejoin="round"/>
+                <path d="M 45 15 L 75 32 L 75 68 L 45 50 Z" fill="url(#gradient-logo)" opacity="0.85"/>
+                <!-- Extensión alargada del mástil izquierdo para marcar la P claramente -->
+                <path d="M 15 32 L 15 110" stroke="var(--acento-morado)" stroke-width="12" stroke-linecap="round"/>
+                <path d="M 15 50 L 45 50" stroke="var(--acento-morado)" stroke-width="10" stroke-linecap="round" opacity="0.5"/>
+            </svg>
+            <span class="logo-text" style="margin-left: 6px;">ETRUCS</span>
+        </div>
+
+        <nav class="nav-links">
+            <a href="#sobre-mi" class="nav-item">Biografía</a>
+            <a href="#mis-videos" class="nav-item">Mis Videos</a>
+            <a href="#contacto" class="nav-item">Contacto</a>
+            <button id="theme-toggle" class="toggle-btn" aria-label="Cambiar tema">🌙</button>
+        </nav>
+    </header>
                 
                 <!-- Grupo con el degradado aplicado a todo el conjunto geométrico -->
                 <g fill="url(#aperture-gradient)" stroke="none">
