@@ -11,18 +11,35 @@
     <!-- HEADER / NAVEGACIÓN -->
     <header class="navbar">
         <div class="logo-container">
-            <!-- La 'P' Geométrica Abstracta (Corregida) -->
+            <!-- El Hexágono Geométrico Interconectado (Corregido Oficial) -->
             <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <!-- Bloque superior-derecho de la P -->
-                <path d="M 20 15 H 60 A 25 25 0 0 1 60 50 H 20 Z" fill="url(#gradient-logo)" />
-                <!-- Bloque inferior-izquierdo del mástil con corte diagonal -->
-                <path d="M 20 50 L 50 50 H 50 V 85 L 20 85 Z" fill="var(--acento-morado)" />
                 <defs>
-                    <linearGradient id="gradient-logo" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <linearGradient id="aperture-gradient" x1="0%" y1="100%" x2="100%" y2="0%">
                         <stop offset="0%" stop-color="var(--acento-morado)" />
                         <stop offset="100%" stop-color="var(--acento-amarillo)" />
                     </linearGradient>
                 </defs>
+                
+                <!-- Grupo con el degradado aplicado a todo el conjunto geométrico -->
+                <g fill="url(#aperture-gradient)" stroke="none">
+                    <!-- Segmento 1: Mástil vertical izquierdo largo -->
+                    <polygon points="20,26 42,13 42,87 20,74" />
+                    
+                    <!-- Segmento 2: Diagonal superior izquierda -->
+                    <polygon points="42,13 68,13 52,40 33,24" />
+                    
+                    <!-- Segmento 3: Diagonal superior derecha -->
+                    <polygon points="68,13 86,39 64,46 52,40" />
+                    
+                    <!-- Segmento 4: Lateral derecho vertical -->
+                    <polygon points="86,39 86,65 64,53 64,46" />
+                    
+                    <!-- Segmento 5: Diagonal inferior derecha (cierre del bucle) -->
+                    <polygon points="86,65 54,83 48,59 64,53" />
+                    
+                    <!-- Segmento 6: Cruce central que define el hueco de la P -->
+                    <polygon points="42,50 64,53 48,59 42,59" />
+                </g>
             </svg>
             <span class="logo-text">ETRUCS</span>
         </div>
@@ -31,7 +48,6 @@
             <a href="#sobre-mi" class="nav-item">Biografía</a>
             <a href="#mis-videos" class="nav-item">Mis Videos</a>
             <a href="#contacto" class="nav-item">Contacto</a>
-            <!-- Botón interruptor de Modo Claro/Oscuro -->
             <button id="theme-toggle" class="toggle-btn" aria-label="Cambiar tema">🌙</button>
         </nav>
     </header>
