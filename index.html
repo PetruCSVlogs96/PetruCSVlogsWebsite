@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetruCS | Portafolio Digital</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo-container">
+            <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20,15 H65 C85,15 85,45 65,45 H20 Z" fill="url(#gradient-logo)" />
+                <path d="M20,45 H45 V85 H20 Z" fill="var(--acento-morado)" />
+                <defs>
+                    <linearGradient id="gradient-logo" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="var(--acento-morado)" />
+                        <stop offset="100%" stop-color="var(--acento-amarillo)" />
+                    </linearGradient>
+                </defs>
+            </svg>
+            <span class="logo-text">ETRUCS</span>
+        </div>
+
+        <nav class="nav-links">
+            <a href="#sobre-mi" class="nav-item">Biografía</a>
+            <a href="#mis-videos" class="nav-item">Mis Videos</a>
+            <a href="#contacto" class="nav-item">Contacto</a>
+            <button id="theme-toggle" class="toggle-btn" aria-label="Cambiar tema">🌙</button>
+        </nav>
+    </header>
+
+    <div class="background-glow"></div>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Hola, soy <span class="text-gradient">PetruCS</span></h1>
+            <p>Creador de contenido, vlogger y apasionado por el diseño digital.</p>
+            <a href="#mis-videos" class="btn-primary">Ver mi trabajo</a>
+        </div>
+    </section>
+
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        toggleBtn.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            if (currentTheme === 'dark') {
+                htmlElement.setAttribute('data-theme', 'light');
+                toggleBtn.textContent = '☀️';
+            } else {
+                htmlElement.setAttribute('data-theme', 'dark');
+                toggleBtn.textContent = '🌙';
+            }
+        });
+    </script>
+</body>
+</html>
