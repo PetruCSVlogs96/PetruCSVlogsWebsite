@@ -1,5 +1,5 @@
 /* ==========================================================================
-   VARIABLES DE COLOR POR DEFECTO (MODO OSCURO)
+   VARIABLES DE PALETA DE COLORES (MODO OSCURO FIJO)
    ========================================================================== */
 :root {
     --bg-principal: #0d0d11;
@@ -16,28 +16,6 @@
 }
 
 /* ==========================================================================
-   LÓGICA DEL INTERRUPTOR (MODO CLARO AL HACER CHECKED)
-   ========================================================================== */
-.theme-checkbox-input {
-    display: none; /* Ocultamos el checkbox de la vista */
-}
-
-/* Cuando se activa el interruptor, cambian los valores de las variables en los hermanos siguientes */
-.theme-checkbox-input:checked ~ * {
-    --bg-principal: #f4f4f9;
-    --bg-tarjetas: #ffffff;
-    --texto-principal: #1a1a24;
-    --texto-secundario: #555566;
-    --texto-suave: #444455;
-    --borde: rgba(0, 0, 0, 0.08);
-    --borde-tarjeta: rgba(0, 0, 0, 0.05);
-    --navbar-bg: rgba(244, 244, 249, 0.8);
-    --gradiente-fondo: radial-gradient(circle at 30% 30%, #e2d9ff 0%, transparent 40%),
-                       radial-gradient(circle at 70% 60%, #fef3c7 0%, transparent 45%),
-                       radial-gradient(circle at 50% 40%, #eef2ff 0%, transparent 50%);
-}
-
-/* ==========================================================================
    CONFIGURACIÓN GENERAL INTERFAZ
    ========================================================================== */
 * {
@@ -45,7 +23,6 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 body {
@@ -126,32 +103,6 @@ body {
     color: var(--texto-principal);
 }
 
-/* BOTÓN DE CONTROL DE TEMA (LABEL) */
-.toggle-btn {
-    background: transparent;
-    border: 1px solid var(--borde);
-    font-size: 1.2rem;
-    cursor: pointer;
-    padding: 5px 12px;
-    border-radius: 20px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.2s, background-color 0.3s;
-}
-
-.toggle-btn:hover {
-    transform: scale(1.1);
-    background-color: var(--borde);
-}
-
-/* Alternancia de iconos de Luna/Sol con puro CSS */
-.toggle-btn .icon-light { display: none; }
-.toggle-btn .icon-dark { display: inline; }
-
-.theme-checkbox-input:checked ~ .navbar .toggle-btn .icon-light { display: inline; }
-.theme-checkbox-input:checked ~ .navbar .toggle-btn .icon-dark { display: none; }
-
 /* ==========================================================================
    LÓGICA DE APARTADOS INDEPENDIENTES (:TARGET)
    ========================================================================== */
@@ -162,22 +113,25 @@ body {
 }
 
 .content-section {
-    display: none;
+    display: none; /* Oculta todas por defecto */
     width: 100%;
     animation: fadeIn 0.5s ease forwards;
 }
 
+/* Mostrar "Inicio" al cargar o si la URL termina en #inicio */
 .content-section:first-child,
 #inicio:target {
     display: block;
 }
 
+/* Ocultar inicio si otra sección está activa en la URL */
 body:has(#biografia:target) #inicio,
 body:has(#mis-videos:target) #inicio,
 body:has(#contacto:target) #inicio {
     display: none;
 }
 
+/* Mostrar la sección apuntada por el menú */
 #biografia:target,
 #mis-videos:target,
 #contacto:target {
@@ -189,7 +143,9 @@ body:has(#contacto:target) #inicio {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* ESTILOS DE LOS CONTENIDOS REUTILIZABLES */
+/* ==========================================================================
+   ESTILOS DE CONTENIDO Y HERO (BIENVENIDA)
+   ========================================================================== */
 .section-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -210,7 +166,6 @@ body:has(#contacto:target) #inicio {
     max-width: 800px;
 }
 
-/* APARTADO INICIO: BIENVENIDA HERO */
 .hero {
     display: flex;
     align-items: center;
@@ -257,7 +212,9 @@ body:has(#contacto:target) #inicio {
     transform: translateY(-2px);
 }
 
-/* CABECERA YOUTUBE */
+/* ==========================================================================
+   SECCIÓN SEGUIDORES Y TARJETAS DE VIDEO
+   ========================================================================== */
 .youtube-profile-header {
     display: flex;
     align-items: center;
@@ -313,7 +270,6 @@ body:has(#contacto:target) #inicio {
     font-size: 1.5rem;
 }
 
-/* CUADRÍCULA Y TARJETAS DE VIDEOS */
 .videos-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -326,7 +282,7 @@ body:has(#contacto:target) #inicio {
     border-radius: 12px;
     overflow: hidden;
     cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
 }
 
