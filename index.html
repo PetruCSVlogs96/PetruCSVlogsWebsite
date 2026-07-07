@@ -11,22 +11,34 @@
     <!-- HEADER / NAVEGACIÓN -->
     <header class="navbar">
         <div class="logo-container">
-            <!-- El Hexágono Geométrico Interconectado con Mástil Alargado -->
-            <svg class="logo-svg" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg" style="width: 38px; height: 45px;">
+            <!-- SVG Ajustado en su caja de visualización para eliminar el espacio muerto derecho -->
+            <svg class="logo-svg" viewBox="10 10 80 115" xmlns="http://www.w3.org/2000/svg" style="width: 36px; height: 48px;">
                 <defs>
-                    <linearGradient id="gradient-logo" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <linearGradient id="gradient-morado-amarillo" x1="0%" y1="100%" x2="100%" y2="0%">
                         <stop offset="0%" stop-color="var(--acento-morado)" />
                         <stop offset="100%" stop-color="var(--acento-amarillo)" />
                     </linearGradient>
                 </defs>
-                <!-- Cuerpo poligonal superior de la P -->
-                <path d="M 45 15 L 75 32 L 75 68 L 45 85 L 15 68 L 15 32 Z" fill="none" stroke="url(#gradient-logo)" stroke-width="12" stroke-linejoin="round"/>
-                <path d="M 45 15 L 75 32 L 75 68 L 45 50 Z" fill="url(#gradient-logo)" opacity="0.85"/>
-                <!-- Extensión alargada del mástil izquierdo para marcar la P claramente -->
-                <path d="M 15 32 L 15 110" stroke="var(--acento-morado)" stroke-width="12" stroke-linecap="round"/>
-                <path d="M 15 50 L 45 50" stroke="var(--acento-morado)" stroke-width="10" stroke-linecap="round" opacity="0.5"/>
+                
+                <!-- Grupo con los pliegues geométricos del hexágono estilo obturador -->
+                <g stroke="var(--fondo-principal)" stroke-width="1.5" stroke-linejoin="round">
+                    <!-- Segmento Izquierdo Superior -->
+                    <path d="M 15 35 L 50 15 L 50 45 L 28 58 Z" fill="url(#gradient-morado-amarillo)" opacity="0.95" />
+                    <!-- Segmento Superior Derecho -->
+                    <path d="M 50 15 L 85 35 L 63 48 L 50 45 Z" fill="var(--acento-amarillo)" />
+                    <!-- Segmento Medio Derecho -->
+                    <path d="M 85 35 L 85 75 L 63 62 L 63 48 Z" fill="var(--acento-amarillo)" opacity="0.85" />
+                    <!-- Segmento Inferior Derecho -->
+                    <path d="M 85 75 L 50 95 L 50 65 L 63 62 Z" fill="url(#gradient-morado-amarillo)" />
+                    <!-- Segmento Central / Pliegue interno -->
+                    <path d="M 50 65 L 28 58 L 50 45 L 63 48 L 63 62 Z" fill="none" />
+                    
+                    <!-- MÁSTIL IZQUIERDO ALARGADO -->
+                    <path d="M 15 35 L 28 42 L 28 120 L 15 112 Z" fill="var(--acento-morado)" />
+                </g>
             </svg>
-            <span class="logo-text" style="margin-left: 6px;">ETRUCS</span>
+            <!-- Margen negativo para jalar el texto directamente hacia el logo geométrico -->
+            <span class="logo-text" style="margin-left: -4px;">ETRUCS</span>
         </div>
 
         <nav class="nav-links">
