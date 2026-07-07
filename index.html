@@ -70,7 +70,87 @@
         </div>
     </section>
 
-    <!-- SCRIPT DE INTERACCIÓN DE TEMA -->
+    <!-- SECCIÓN DE YOUTUBE (PERFIL + VIDEOS VINCULADOS) -->
+    <section id="mis-videos" class="videos-section">
+        
+        <!-- Cabecera de Canal de YouTube -->
+        <div class="youtube-profile-header">
+            <!-- Icono/Foto de perfil del canal -->
+            <div class="channel-avatar">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="48" fill="url(#pliegue-gradiente)" />
+                    <text x="50%" y="55%" font-size="32" font-weight="900" fill="#121214" text-anchor="middle" dominant-baseline="middle">P</text>
+                </svg>
+            </div>
+            
+            <!-- Info del Canal -->
+            <h2 class="channel-name">YO SOY PETRUCS VLOGS</h2>
+            <p class="channel-stats">Gastronomía • Exploración Urbana • Vlogs</p>
+            
+            <!-- Botón de Suscripción Directa Vinculado -->
+            <a href="https://www.youtube.com/channel/UCrYOfsQd3_WPVHHSA_fyxhg" target="_blank" class="btn-subscribe">
+                <span class="play-icon">▶</span> Suscribirse
+            </a>
+        </div>
+
+        <div class="separator-line"></div>
+
+        <!-- Título de la sección de videos -->
+        <h3 class="videos-title">Videos Destacados</h3>
+
+        <!-- Contenedor de Videos Importantes -->
+        <div class="videos-grid">
+            <!-- Tarjeta 1: Vlog Cinemex -->
+            <div class="video-card youtube" onclick="window.open('https://www.youtube.com/channel/UCrYOfsQd3_WPVHHSA_fyxhg', '_blank')">
+                <div class="video-thumbnail">
+                    <div class="platform-badge">Vlog</div>
+                    <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=600&auto=format&fit=crop" alt="Miniatura Cinemex">
+                    <div class="play-overlay">▶</div>
+                </div>
+                <div class="video-info">
+                    <h3>Explorando el Cinemex Abandonado | Serie Especial</h3>
+                    <p>El recorrido completo por el lobby, las salas de proyección y las áreas de producción que guardan miles de recuerdos.</p>
+                    <div class="video-stats">
+                        <span>👁️ +25,000 Vistas</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta 2: Coctelería -->
+            <div class="video-card youtube" onclick="window.open('https://www.youtube.com/channel/UCrYOfsQd3_WPVHHSA_fyxhg', '_blank')">
+                <div class="video-thumbnail">
+                    <div class="platform-badge">Mixología</div>
+                    <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=600&auto=format&fit=crop" alt="Miniatura Cocktails">
+                    <div class="play-overlay">▶</div>
+                </div>
+                <div class="video-info">
+                    <h3>El Arte Detrás de la Barra: Preparación de Cocteles 🍸</h3>
+                    <p>Estandarización de recetas y técnicas de mixología fina aplicadas al estilo profesional de la gastronomía.</p>
+                    <div class="video-stats">
+                        <span>🔥 Destacado</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta 3: Próximo Contenido -->
+            <div class="video-card youtube" onclick="window.open('https://www.youtube.com/channel/UCrYOfsQd3_WPVHHSA_fyxhg', '_blank')">
+                <div class="video-thumbnail">
+                    <div class="platform-badge">Gastronomía</div>
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=600&auto=format&fit=crop" alt="Miniatura Snacks">
+                    <div class="play-overlay">▶</div>
+                </div>
+                <div class="video-info">
+                    <h3>Recetas de Botanas Especiales y Proyectos Creativos ⚡</h3>
+                    <p>Preparaciones dinámicas creadas para eventos masivos y colaboraciones usando los mejores ingredientes.</p>
+                    <div class="video-stats">
+                        <span>🚀 Nuevo</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SCRIPT INTERACTIVO PARA EL CAMBIO DE MODO -->
     <script>
         const toggleBtn = document.getElementById('theme-toggle');
         const htmlElement = document.documentElement;
