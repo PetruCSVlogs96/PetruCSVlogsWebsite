@@ -1,29 +1,58 @@
-/* CONFIGURACIÓN GENERAL INTERFAZ OSCURA */
+/* CONFIGURACIÓN DE COLORES Y VARIABLES */
+:root[data-theme="dark"] {
+    --bg-principal: #0d0d11;
+    --bg-tarjetas: #16161a;
+    --texto-principal: #ffffff;
+    --texto-secundario: #aaaaaa;
+    --texto-suave: #cccccc;
+    --borde: rgba(255, 255, 255, 0.05);
+    --borde-tarjeta: rgba(255, 255, 255, 0.03);
+    --navbar-bg: rgba(13, 13, 17, 0.75);
+    --gradiente-fondo: radial-gradient(circle at 30% 30%, #2a1b4e 0%, transparent 40%),
+                       radial-gradient(circle at 70% 60%, #4c3c15 0%, transparent 45%),
+                       radial-gradient(circle at 50% 40%, #141226 0%, transparent 50%);
+}
+
+:root[data-theme="light"] {
+    --bg-principal: #f4f4f9;
+    --bg-tarjetas: #ffffff;
+    --texto-principal: #1a1a24;
+    --texto-secundario: #555566;
+    --texto-suave: #444455;
+    --borde: rgba(0, 0, 0, 0.08);
+    --borde-tarjeta: rgba(0, 0, 0, 0.05);
+    --navbar-bg: rgba(244, 244, 249, 0.8);
+    --gradiente-fondo: radial-gradient(circle at 30% 30%, #e2d9ff 0%, transparent 40%),
+                       radial-gradient(circle at 70% 60%, #fef3c7 0%, transparent 45%),
+                       radial-gradient(circle at 50% 40%, #eef2ff 0%, transparent 50%);
+}
+
+/* CONFIGURACIÓN GENERAL INTERFAZ */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 body {
-    background-color: #0d0d11;
-    color: #ffffff;
+    background-color: var(--bg-principal);
+    color: var(--texto-principal);
     min-height: 100vh;
+    overflow-y: auto; /* Permite scroll vertical normal si el contenido crece */
     overflow-x: hidden;
     position: relative;
 }
 
-/* ANIMACIÓN LÍQUIDA DE FONDO (Fija detrás de todo) */
+/* ANIMACIÓN LÍQUIDA DE FONDO */
 .background-glow {
     position: fixed;
     top: -50%;
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle at 30% 30%, #2a1b4e 0%, transparent 40%),
-                radial-gradient(circle at 70% 60%, #4c3c15 0%, transparent 45%),
-                radial-gradient(circle at 50% 40%, #141226 0%, transparent 50%);
+    background: var(--gradiente-fondo);
     z-index: -1;
     animation: liquid-motion 25s ease-in-out infinite alternate;
 }
@@ -34,15 +63,16 @@ body {
     100% { transform: rotate(120deg) scale(1) translate(-2%, 3%); }
 }
 
-/* MENÚ DE NAVEGACIÓN */
+/* MENÚ DE NAVEGACIÓN (NAVBAR) */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    background: rgba(13, 13, 17, 0.75);
+    background: var(--navbar-bg);
     backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--borde);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -62,17 +92,18 @@ body {
 .logo-text {
     font-weight: 900;
     font-size: 1.8rem;
-    color: #fff;
+    color: var(--texto-principal);
     letter-spacing: 1px;
 }
 
 .nav-links {
     display: flex;
+    align-items: center;
     gap: 1.5rem;
 }
 
 .nav-item {
-    color: #aaa;
+    color: var(--texto-secundario);
     text-decoration: none;
     font-weight: 600;
     font-size: 1rem;
@@ -80,36 +111,53 @@ body {
 }
 
 .nav-item:hover {
-    color: #fff;
+    color: var(--texto-principal);
 }
 
-/* LÓGICA DE APARTADOS INDEPENDIENTES (Puro CSS sin desastres) */
+/* BOTÓN DE CLARO / OSCURO */
+.toggle-btn {
+    background: transparent;
+    border: 1px solid var(--borde);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+.toggle-btn:hover {
+    transform: scale(1.1);
+    background-color: var(--borde);
+}
+
+/* LÓGICA DE APARTADOS INDEPENDIENTES (:TARGET) */
 .main-content {
     position: relative;
     width: 100%;
-    padding-top: 2rem;
+    padding-bottom: 5rem; /* Espacio extra abajo para que no corte al scrollear */
 }
 
 .content-section {
-    display: none; /* Por defecto todos los apartados se ocultan */
+    display: none; /* Oculta todas las secciones por defecto */
     width: 100%;
     animation: fadeIn 0.5s ease forwards;
 }
 
-/* Mostrar "Inicio" al cargar o si la URL termina en #inicio */
+/* Reglas para mostrar solo el apartado activo */
 .content-section:first-child,
 #inicio:target {
     display: block;
 }
 
-/* Ocultar la sección de inicio por defecto si otra está activa */
 body:has(#biografia:target) #inicio,
 body:has(#mis-videos:target) #inicio,
 body:has(#contacto:target) #inicio {
     display: none;
 }
 
-/* Mostrar específicamente la sección que coincida con el menú seleccionado */
 #biografia:target,
 #mis-videos:target,
 #contacto:target {
@@ -121,7 +169,7 @@ body:has(#contacto:target) #inicio {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* ESTILOS DE LOS CONTENIDOS */
+/* ESTILOS DE LOS CONTENIDOS REUTILIZABLES */
 .section-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -130,14 +178,14 @@ body:has(#contacto:target) #inicio {
 
 .section-title {
     font-size: 2.2rem;
-    color: #fff;
+    color: var(--texto-principal);
     margin-bottom: 1.5rem;
     font-weight: 800;
 }
 
 .section-text {
     font-size: 1.1rem;
-    color: #ccc;
+    color: var(--texto-suave);
     line-height: 1.7;
     max-width: 800px;
 }
@@ -155,7 +203,7 @@ body:has(#contacto:target) #inicio {
     font-size: 3.5rem;
     font-weight: 900;
     margin-bottom: 1rem;
-    color: #fff;
+    color: var(--texto-principal);
 }
 
 .text-gradient {
@@ -166,7 +214,7 @@ body:has(#contacto:target) #inicio {
 
 .hero-content p {
     font-size: 1.3rem;
-    color: #aaa;
+    color: var(--texto-secundario);
     margin-bottom: 2rem;
     max-width: 600px;
     margin-left: auto;
@@ -176,12 +224,12 @@ body:has(#contacto:target) #inicio {
 .btn-primary {
     display: inline-block;
     background: #7c4dff;
-    color: #fff;
+    color: #ffffff;
     padding: 0.8rem 2rem;
     border-radius: 30px;
     font-weight: bold;
     text-decoration: none;
-    transition: background 0.3s, transform 0.2s;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 .btn-primary:hover {
@@ -189,7 +237,7 @@ body:has(#contacto:target) #inicio {
     transform: translateY(-2px);
 }
 
-/* CABECERA YOUTUBE: Ajustes Perfil Pequeño */
+/* CABECERA YOUTUBE CHICA */
 .youtube-profile-header {
     display: flex;
     align-items: center;
@@ -215,7 +263,7 @@ body:has(#contacto:target) #inicio {
 .channel-name {
     margin: 0;
     font-size: 1.4rem;
-    color: #fff;
+    color: var(--texto-principal);
     font-weight: 700;
     line-height: 1.2;
 }
@@ -235,12 +283,12 @@ body:has(#contacto:target) #inicio {
 
 .separator {
     height: 1px;
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--borde);
     margin-bottom: 2rem;
 }
 
 .videos-title {
-    color: #fff;
+    color: var(--texto-principal);
     margin-bottom: 1.5rem;
     font-size: 1.5rem;
 }
@@ -253,17 +301,19 @@ body:has(#contacto:target) #inicio {
 }
 
 .video-card {
-    background: #16161a;
-    border: 1px solid rgba(255, 255, 255, 0.03);
+    background: var(--bg-tarjetas);
+    border: 1px solid var(--borde-tarjeta);
     border-radius: 12px;
     overflow: hidden;
     cursor: pointer;
-    transition: transform 0.3s, border-color 0.3s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
 }
 
 .video-card:hover {
     transform: translateY(-5px);
-    border-color: rgba(124, 77, 255, 0.3);
+    border-color: rgba(124, 77, 255, 0.4);
+    box-shadow: 0 8px 24px rgba(124, 77, 255, 0.15);
 }
 
 .thumbnail-container {
@@ -283,7 +333,7 @@ body:has(#contacto:target) #inicio {
 
 .video-info h3 {
     font-size: 1.05rem;
-    color: #fff;
+    color: var(--texto-principal);
     margin-bottom: 0.5rem;
     line-height: 1.4;
 }
