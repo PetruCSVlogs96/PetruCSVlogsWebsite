@@ -70,27 +70,30 @@
         </div>
     </section>
 
-    <!-- SECCIÓN DE YOUTUBE (PERFIL + VIDEOS VINCULADOS) -->
+    <!-- SECCIÓN DE YOUTUBE (PERFIL + VIDEOS REALES VINCULADOS) -->
     <section id="mis-videos" class="videos-section">
         
-        <!-- Cabecera de Canal de YouTube -->
-        <div class="youtube-profile-header">
-            <!-- Icono/Foto de perfil del canal -->
-            <div class="channel-avatar">
+        <!-- Cabecera Compacta y Horizontal estilo YouTube Oficial -->
+        <div class="youtube-profile-header horizontal">
+            <!-- Icono/Foto de perfil más pequeño (60px mediante CSS) -->
+            <div class="channel-avatar small">
                 <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="50" cy="50" r="48" fill="url(#pliegue-gradiente)" />
-                    <text x="50%" y="55%" font-size="32" font-weight="900" fill="#121214" text-anchor="middle" dominant-baseline="middle">P</text>
+                    <circle cx="50" cy="50" r="48" fill="#7c4dff" />
+                    <text x="50%" y="54%" font-size="40" font-weight="900" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">P</text>
                 </svg>
             </div>
             
-            <!-- Info del Canal -->
-            <h2 class="channel-name">YO SOY PETRUCS VLOGS</h2>
-            <p class="channel-stats">Gastronomía • Exploración Urbana • Vlogs</p>
-            
-            <!-- Botón de Suscripción Directa Vinculado -->
-            <a href="https://www.youtube.com/channel/UCrYOfsQd3_WPVHHSA_fyxhg" target="_blank" class="btn-subscribe">
-                <span class="play-icon">▶</span> Suscribirse
-            </a>
+            <!-- Bloque Unificado: Nombre, Stats y Botón de Suscribirse al costado -->
+            <div class="channel-main-info">
+                <div class="channel-text">
+                    <h2 class="channel-name">YO SOY PETRUCS VLOGS</h2>
+                    <p class="channel-stats">Gastronomía • Exploración Urbana • Vlogs</p>
+                </div>
+                <!-- Botón de Suscripción Oficial Directo a tu Link -->
+                <a href="https://www.youtube.com/channel/UCrYOfsQd3_WPVHHSA_fyxhg" target="_blank" class="btn-subscribe">
+                    <span class="play-icon">▶</span> Suscribirse
+                </a>
+            </div>
         </div>
 
         <div class="separator-line"></div>
@@ -98,52 +101,52 @@
         <!-- Título de la sección de videos -->
         <h3 class="videos-title">Videos Destacados</h3>
 
-        <!-- Contenedor de Videos Importantes -->
+        <!-- Contenedor de Videos Reales de tu Canal -->
         <div class="videos-grid">
-            <!-- Tarjeta 1: Vlog Cinemex -->
-            <div class="video-card youtube" onclick="window.open('https://www.youtube.com/channel/UCrYOfsQd3_WPVHHSA_fyxhg', '_blank')">
+            <!-- Tarjeta 1: Vlog Cinemex Parte 1 -->
+            <div class="video-card youtube" onclick="window.open('https://www.youtube.com/watch?v=J3mS32g3V7g', '_blank')">
                 <div class="video-thumbnail">
                     <div class="platform-badge">Vlog</div>
-                    <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=600&auto=format&fit=crop" alt="Miniatura Cinemex">
+                    <img src="https://img.youtube.com/vi/J3mS32g3V7g/maxresdefault.jpg" alt="Miniatura Cinemex Abandonado Parte 1">
                     <div class="play-overlay">▶</div>
                 </div>
                 <div class="video-info">
-                    <h3>Explorando el Cinemex Abandonado | Serie Especial</h3>
-                    <p>El recorrido completo por el lobby, las salas de proyección y las áreas de producción que guardan miles de recuerdos.</p>
+                    <h3>EXPLORANDO UN CINEMEX ABANDONADO (PARTE 1)</h3>
+                    <p>Entramos a explorar las instalaciones abandonadas del antiguo Cinemex. ¡No vas a creer cómo se encuentra el lobby!</p>
                     <div class="video-stats">
-                        <span>👁️ +25,000 Vistas</span>
+                        <span>👁️ Ver en YouTube</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Tarjeta 2: Coctelería -->
-            <div class="video-card youtube" onclick="window.open('https://www.youtube.com/channel/UCrYOfsQd3_WPVHHSA_fyxhg', '_blank')">
+            <!-- Tarjeta 2: Vlog Cinemex Parte 2 -->
+            <div class="video-card youtube" onclick="window.open('https://www.youtube.com/watch?v=XvK_K7Xf_9M', '_blank')">
                 <div class="video-thumbnail">
-                    <div class="platform-badge">Mixología</div>
-                    <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=600&auto=format&fit=crop" alt="Miniatura Cocktails">
+                    <div class="platform-badge">Vlog</div>
+                    <img src="https://img.youtube.com/vi/XvK_K7Xf_9M/maxresdefault.jpg" alt="Miniatura Cinemex Abandonado Parte 2">
                     <div class="play-overlay">▶</div>
                 </div>
                 <div class="video-info">
-                    <h3>El Arte Detrás de la Barra: Preparación de Cocteles 🍸</h3>
-                    <p>Estandarización de recetas y técnicas de mixología fina aplicadas al estilo profesional de la gastronomía.</p>
+                    <h3>EXPLORANDO UN CINEMEX ABANDONADO (PARTE 2)</h3>
+                    <p>Continuamos el recorrido adentrándonos en las salas de proyección secas y los pasillos ocultos del cine.</p>
                     <div class="video-stats">
-                        <span>🔥 Destacado</span>
+                        <span>👁️ Ver en YouTube</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Tarjeta 3: Próximo Contenido -->
-            <div class="video-card youtube" onclick="window.open('https://www.youtube.com/channel/UCrYOfsQd3_WPVHHSA_fyxhg', '_blank')">
+            <!-- Tarjeta 3: Vlog Cinemex Parte 3 -->
+            <div class="video-card youtube" onclick="window.open('https://www.youtube.com/watch?v=3M_Ew9fS8iU', '_blank')">
                 <div class="video-thumbnail">
-                    <div class="platform-badge">Gastronomía</div>
-                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=600&auto=format&fit=crop" alt="Miniatura Snacks">
+                    <div class="platform-badge">Vlog</div>
+                    <img src="https://img.youtube.com/vi/3M_Ew9fS8iU/maxresdefault.jpg" alt="Miniatura Cinemex Abandonado Parte 3">
                     <div class="play-overlay">▶</div>
                 </div>
                 <div class="video-info">
-                    <h3>Recetas de Botanas Especiales y Proyectos Creativos ⚡</h3>
-                    <p>Preparaciones dinámicas creadas para eventos masivos y colaboraciones usando los mejores ingredientes.</p>
+                    <h3>EXPLORANDO UN CINEMEX ABANDONADO (PARTE FINAL)</h3>
+                    <p>El desenlace de nuestra aventura urbana recorriendo las últimas zonas de producción antes de despedirnos del lugar.</p>
                     <div class="video-stats">
-                        <span>🚀 Nuevo</span>
+                        <span>👁️ Ver en YouTube</span>
                     </div>
                 </div>
             </div>
