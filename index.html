@@ -10,44 +10,50 @@
 
     <!-- HEADER / NAVEGACIÓN -->
     <header class="navbar">
-        <div class="logo-container" style="display: flex; align-items: center; gap: 0;">
-            <!-- SVG de la P Geométrica Idéntica, Proporcional y con Mástil Largo -->
-            <svg class="logo-svg" viewBox="10 10 75 110" xmlns="http://www.w3.org/2000/svg" style="width: 40px; height: 55px; display: block;">
+        <div class="logo-container" style="display: flex; align-items: center; gap: 0; padding: 0;">
+            <!-- SVG de la P con Geometría de Obturador de Cámara Exacta y Mástil Largo -->
+            <svg class="logo-svg" viewBox="10 10 75 115" xmlns="http://www.w3.org/2000/svg" style="width: 42px; height: 56px; display: block; margin: 0;">
                 <defs>
-                    <linearGradient id="gradient-morado-amarillo" x1="0%" y1="100%" x2="100%" y2="0%">
+                    <!-- Gradiente continuo para los pliegues metálicos del logo -->
+                    <linearGradient id="pliegue-gradiente" x1="0%" y1="100%" x2="100%" y2="0%">
                         <stop offset="0%" stop-color="var(--acento-morado)" />
+                        <stop offset="60%" stop-color="#a855f7" />
                         <stop offset="100%" stop-color="var(--acento-amarillo)" />
                     </linearGradient>
                 </defs>
                 
-                <g stroke="var(--fondo-principal)" stroke-width="1" stroke-linejoin="round">
-                    <!-- MÁSTIL IZQUIERDO ALARGADO (Una sola pieza limpia hacia abajo) -->
-                    <path d="M 15 35 L 32 45 L 32 115 L 15 105 Z" fill="var(--acento-morado)" />
+                <!-- Contenedor general con bordes internos oscuros para separar los pliegues tridimensionales -->
+                <g stroke="var(--fondo-principal)" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round">
                     
-                    <!-- Pliegue Superior Izquierdo -->
-                    <path d="M 15 35 L 48 16 L 48 45 L 32 45 Z" fill="url(#gradient-morado-amarillo)" opacity="0.95" />
+                    <!-- 1. MÁSTIL IZQUIERDO LARGO (Base de la P tal cual la imagen) -->
+                    <path d="M 16 34 L 34 44 L 34 118 L 16 108 Z" fill="var(--acento-morado)" />
                     
-                    <!-- Pliegue Superior Derecho -->
-                    <path d="M 48 16 L 80 35 L 62 45 L 48 45 Z" fill="var(--acento-amarillo)" />
+                    <!-- 2. PLIEGUE SUPERIOR IZQUIERDO -->
+                    <path d="M 16 34 L 50 14 L 50 44 L 34 44 Z" fill="url(#pliegue-gradiente)" opacity="0.95" />
                     
-                    <!-- Pliegue Medio Derecho -->
-                    <path d="M 80 35 L 80 70 L 62 60 L 62 45 Z" fill="var(--acento-amarillo)" opacity="0.85" />
+                    <!-- 3. PLIEGUE SUPERIOR DERECHO -->
+                    <path d="M 50 14 L 84 34 L 66 44 L 50 44 Z" fill="var(--acento-amarillo)" />
                     
-                    <!-- Pliegue Inferior Derecho -->
-                    <path d="M 80 70 L 48 89 L 48 60 L 62 60 Z" fill="url(#gradient-morado-amarillo)" />
+                    <!-- 4. PLIEGUE LATERAL DERECHO -->
+                    <path d="M 84 34 L 84 74 L 66 64 L 66 44 Z" fill="var(--acento-amarillo)" opacity="0.9" />
                     
-                    <!-- Pliegue Conector Central Interno -->
-                    <path d="M 48 60 L 32 53 L 32 45 L 48 45 Z" fill="url(#gradient-morado-amarillo)" opacity="0.7" />
+                    <!-- 5. PLIEGUE INFERIOR DERECHO -->
+                    <path d="M 84 74 L 50 94 L 50 64 L 66 64 Z" fill="url(#pliegue-gradiente)" />
+                    
+                    <!-- 6. CONECTOR CENTRAL (Cierra el Espacio del Obturador) -->
+                    <path d="M 50 64 L 34 54 L 34 44 L 50 44 Z" fill="url(#pliegue-gradiente)" opacity="0.8" />
+                    
                 </g>
             </svg>
-            <!-- Texto pegado inmediatamente sin separaciones muertas -->
-            <span class="logo-text" style="margin-left: 2px; line-height: 1; display: inline-block;">ETRUCS</span>
+            <!-- Texto ETRUCS pegado al ras del diseño del isotipo -->
+            <span class="logo-text" style="margin-left: 0px; padding-left: 0px; line-height: 1; display: inline-block;">ETRUCS</span>
         </div>
 
         <nav class="nav-links">
             <a href="#sobre-mi" class="nav-item">Biografía</a>
             <a href="#mis-videos" class="nav-item">Mis Videos</a>
             <a href="#contacto" class="nav-item">Contacto</a>
+            <!-- Interruptor de Tema Oscuro/Claro -->
             <button id="theme-toggle" class="toggle-btn" aria-label="Cambiar tema">🌙</button>
         </nav>
     </header>
@@ -64,7 +70,7 @@
         </div>
     </section>
 
-    <!-- SCRIPT INTERACTIVO PARA EL CAMBIO DE MODO -->
+    <!-- SCRIPT DE INTERACCIÓN DE TEMA -->
     <script>
         const toggleBtn = document.getElementById('theme-toggle');
         const htmlElement = document.documentElement;
