@@ -1,209 +1,295 @@
-/* ==========================================================================
-   CONFIGURACIÓN DE VARIABLES (Tus colores e identidad)
-   ========================================================================== */
-:root {
-  /* Modo Oscuro (Por defecto) */
-  --fondo-principal: #121214;   /* Gris oscuro profundo */
-  --fondo-navbar: rgba(18, 18, 20, 0.8);
-  --color-texto: #f5f5f7;       /* Blanco grisáceo agradable */
-  --color-subtexto: #a0a0aa;    /* Gris suave */
-  --acento-morado: #7c4dff;     /* Morado vibrante */
-  --acento-amarillo: #ffd600;   /* Amarillo eléctrico */
-  --transicion-suave: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-[data-theme="light"] {
-  /* Modo Claro */
-  --fondo-principal: #f4f4f6;   /* Gris claro limpio */
-  --fondo-navbar: rgba(244, 244, 246, 0.8);
-  --color-texto: #1c1c1e;       /* Gris casi negro */
-  --color-subtexto: #636366;
-  --acento-morado: #5e35b1;     /* Morado con más contraste para fondo claro */
-  --acento-amarillo: #ffb300;   /* Amarillo oscuro legible */
-}
-
-/* ==========================================================================
-   ESTILOS GENERALES
-   ========================================================================== */
+/* CONFIGURACIÓN GENERAL INTERFAZ OSCURA */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-  background-color: var(--fondo-principal);
-  color: var(--color-texto);
-  transition: var(--transicion-suave);
-  overflow-x: hidden;
-  min-height: 100vh;
+    background-color: #0d0d11;
+    color: #ffffff;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
 }
 
-/* ==========================================================================
-   HEADER / NAVBAR (Moderno y limpio)
-   ========================================================================== */
+/* ANIMACIÓN LÍQUIDA DE FONDO (Fija detrás de todo) */
+.background-glow {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 30%, #2a1b4e 0%, transparent 40%),
+                radial-gradient(circle at 70% 60%, #4c3c15 0%, transparent 45%),
+                radial-gradient(circle at 50% 40%, #141226 0%, transparent 50%);
+    z-index: -1;
+    animation: liquid-motion 25s ease-in-out infinite alternate;
+}
+
+@keyframes liquid-motion {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(60deg) scale(1.1) translate(3%, -2%); }
+    100% { transform: rotate(120deg) scale(1) translate(-2%, 3%); }
+}
+
+/* MENÚ DE NAVEGACIÓN */
 .navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 1.2rem 5%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: var(--fondo-navbar);
-  backdrop-filter: blur(10px); /* Efecto vidrio esmerilado */
-  z-index: 1000;
-  transition: var(--transicion-suave);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: rgba(13, 13, 17, 0.75);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .logo-container {
-  display: flex;
-  align-items: center;
-  gap: 4px; /* Pegado sutil para que parezca una sola palabra */
-  cursor: pointer;
+    display: flex;
+    align-items: center;
 }
 
 .logo-svg {
-  width: 38px;
-  height: 38px;
-  transition: var(--transicion-suave);
-}
-
-/* Animación sutil del logo al pasar el cursor */
-.logo-container:hover .logo-svg {
-  transform: rotate(-8deg) scale(1.08);
+    width: 42px;
+    height: 56px;
+    display: block;
 }
 
 .logo-text {
-  font-size: 1.5rem;
-  font-weight: 800;
-  letter-spacing: 2px;
-  color: var(--color-texto);
-  transition: var(--transicion-suave);
+    font-weight: 900;
+    font-size: 1.8rem;
+    color: #fff;
+    letter-spacing: 1px;
 }
 
 .nav-links {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
+    display: flex;
+    gap: 1.5rem;
 }
 
 .nav-item {
-  text-decoration: none;
-  color: var(--color-subtexto);
-  font-weight: 500;
-  font-size: 1rem;
-  transition: var(--transicion-suave);
-  position: relative;
+    color: #aaa;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.3s;
 }
 
 .nav-item:hover {
-  color: var(--acento-morado);
+    color: #fff;
 }
 
-/* Línea animada amarilla debajo de los enlaces */
-.nav-item::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: -4px;
-  left: 0;
-  background-color: var(--acento-amarillo);
-  transition: var(--transicion-suave);
+/* LÓGICA DE APARTADOS INDEPENDIENTES (Puro CSS sin desastres) */
+.main-content {
+    position: relative;
+    width: 100%;
+    padding-top: 2rem;
 }
 
-.nav-item:hover::after {
-  width: 100%;
+.content-section {
+    display: none; /* Por defecto todos los apartados se ocultan */
+    width: 100%;
+    animation: fadeIn 0.5s ease forwards;
 }
 
-.toggle-btn {
-  background: none;
-  border: none;
-  font-size: 1.2rem;
-  cursor: pointer;
-  padding: 5px;
-  border-radius: 50%;
-  transition: var(--transicion-suave);
+/* Mostrar "Inicio" al cargar o si la URL termina en #inicio */
+.content-section:first-child,
+#inicio:target {
+    display: block;
 }
 
-.toggle-btn:hover {
-  transform: scale(1.2);
+/* Ocultar la sección de inicio por defecto si otra está activa */
+body:has(#biografia:target) #inicio,
+body:has(#mis-videos:target) #inicio,
+body:has(#contacto:target) #inicio {
+    display: none;
 }
 
-/* ==========================================================================
-   ANIMACIÓN DE FONDO (Degradado Líquido en Movimiento)
-   ========================================================================== */
-.background-glow {
-  position: fixed;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  z-index: -1;
-  background: radial-gradient(circle at 30% 30%, rgba(124, 77, 255, 0.12), transparent 40%),
-              radial-gradient(circle at 70% 60%, rgba(255, 214, 0, 0.05), transparent 40%),
-              radial-gradient(circle at 50% 20%, rgba(124, 77, 255, 0.07), transparent 50%);
-  animation: liquidBg 22s infinite alternate ease-in-out;
+/* Mostrar específicamente la sección que coincida con el menú seleccionado */
+#biografia:target,
+#mis-videos:target,
+#contacto:target {
+    display: block;
 }
 
-@keyframes liquidBg {
-  0% { transform: translate(0, 0) rotate(0deg); }
-  50% { transform: translate(-4%, 8%) rotate(180deg); }
-  100% { transform: translate(8%, -4%) rotate(360deg); }
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* ==========================================================================
-   SECCIÓN HERO / BIENVENIDA
-   ========================================================================== */
+/* ESTILOS DE LOS CONTENIDOS */
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.section-title {
+    font-size: 2.2rem;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    font-weight: 800;
+}
+
+.section-text {
+    font-size: 1.1rem;
+    color: #ccc;
+    line-height: 1.7;
+    max-width: 800px;
+}
+
+/* APARTADO INICIO: BIENVENIDA HERO */
 .hero {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 6rem 2rem;
 }
 
 .hero-content h1 {
-  font-size: 3.8rem;
-  font-weight: 800;
-  margin-bottom: 1rem;
-  letter-spacing: -1px;
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    color: #fff;
 }
 
 .text-gradient {
-  background: linear-gradient(45deg, var(--acento-morado), var(--acento-amarillo));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+    background: linear-gradient(45deg, #7c4dff, #facc15);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .hero-content p {
-  font-size: 1.25rem;
-  color: var(--color-subtexto);
-  max-width: 600px;
-  margin: 0 auto 2.5rem auto;
-  line-height: 1.6;
+    font-size: 1.3rem;
+    color: #aaa;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .btn-primary {
-  display: inline-block;
-  text-decoration: none;
-  background-color: var(--acento-morado);
-  color: #ffffff;
-  padding: 0.9rem 2.2rem;
-  border-radius: 30px;
-  font-weight: 600;
-  transition: var(--transicion-suave);
-  box-shadow: 0 4px 15px rgba(124, 77, 255, 0.3);
+    display: inline-block;
+    background: #7c4dff;
+    color: #fff;
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.2s;
 }
 
 .btn-primary:hover {
-  background-color: var(--acento-amarillo);
-  color: #121214;
-  transform: translateY(-4px);
-  box-shadow: 0 6px 20px rgba(255, 214, 0, 0.4);
+    background: #6236ff;
+    transform: translateY(-2px);
+}
+
+/* CABECERA YOUTUBE: Ajustes Perfil Pequeño */
+.youtube-profile-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 1.5rem;
+}
+
+.channel-avatar {
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.channel-info-block {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-align: left;
+}
+
+.channel-name {
+    margin: 0;
+    font-size: 1.4rem;
+    color: #fff;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.btn-subscribe {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    background: #cc0000;
+    color: #ffffff;
+    padding: 5px 12px;
+    border-radius: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+
+.separator {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    margin-bottom: 2rem;
+}
+
+.videos-title {
+    color: #fff;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+/* CUADRÍCULA Y TARJETAS DE VIDEOS */
+.videos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.video-card {
+    background: #16161a;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.video-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(124, 77, 255, 0.3);
+}
+
+.thumbnail-container {
+    width: 100%;
+    aspect-ratio: 16/9;
+}
+
+.thumbnail-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-info {
+    padding: 1.2rem;
+}
+
+.video-info h3 {
+    font-size: 1.05rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+.video-info p {
+    font-size: 0.85rem;
+    color: #7c4dff;
+    font-weight: 600;
 }
