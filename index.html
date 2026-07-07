@@ -9,59 +9,31 @@
 <body>
 
     <!-- HEADER / NAVEGACIÓN -->
-  <header class="navbar">
-    <div class="logo-container">
-        <svg class="logo-svg" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg" style="width: 38px; height: 45px;">
-            <defs>
-                <linearGradient id="gradient-logo" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="var(--acento-morado)" />
-                    <stop offset="100%" stop-color="var(--acento-amarillo)" />
-                </linearGradient>
-            </defs>
-            <path d="M 45 15 L 75 32 L 75 68 L 45 85 L 15 68 L 15 32 Z" fill="none" stroke="url(#gradient-logo)" stroke-width="12" stroke-linejoin="round"/>
-            <path d="M 45 15 L 75 32 L 75 68 L 45 50 Z" fill="url(#gradient-logo)" opacity="0.85"/>
-            <path d="M 15 32 L 15 110" stroke="var(--acento-morado)" stroke-width="12" stroke-linecap="round"/>
-            <path d="M 15 50 L 45 50" stroke="var(--acento-morado)" stroke-width="10" stroke-linecap="round" opacity="0.5"/>
-        </svg>
-        <span class="logo-text" style="margin-left: 6px;">ETRUCS</span>
-    </div>
-
-    <nav class="nav-links">
-        <a href="#sobre-mi" class="nav-item">Biografía</a>
-        <a href="#mis-videos" class="nav-item">Mis Videos</a>
-        <a href="#contacto" class="nav-item">Contacto</a>
-        <button id="theme-toggle" class="toggle-btn" aria-label="Cambiar tema">🌙</button>
-    </nav>
-</header>
-                
-                <!-- Grupo con el degradado aplicado a todo el conjunto geométrico -->
-                <g fill="url(#aperture-gradient)" stroke="none">
-                    <!-- Segmento 1: Mástil vertical izquierdo largo -->
-                    <polygon points="20,26 42,13 42,87 20,74" />
-                    
-                    <!-- Segmento 2: Diagonal superior izquierda -->
-                    <polygon points="42,13 68,13 52,40 33,24" />
-                    
-                    <!-- Segmento 3: Diagonal superior derecha -->
-                    <polygon points="68,13 86,39 64,46 52,40" />
-                    
-                    <!-- Segmento 4: Lateral derecho vertical -->
-                    <polygon points="86,39 86,65 64,53 64,46" />
-                    
-                    <!-- Segmento 5: Diagonal inferior derecha (cierre del bucle) -->
-                    <polygon points="86,65 54,83 48,59 64,53" />
-                    
-                    <!-- Segmento 6: Cruce central que define el hueco de la P -->
-                    <polygon points="42,50 64,53 48,59 42,59" />
-                </g>
+    <header class="navbar">
+        <div class="logo-container">
+            <!-- El Hexágono Geométrico Interconectado con Mástil Alargado -->
+            <svg class="logo-svg" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg" style="width: 38px; height: 45px;">
+                <defs>
+                    <linearGradient id="gradient-logo" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="var(--acento-morado)" />
+                        <stop offset="100%" stop-color="var(--acento-amarillo)" />
+                    </linearGradient>
+                </defs>
+                <!-- Cuerpo poligonal superior de la P -->
+                <path d="M 45 15 L 75 32 L 75 68 L 45 85 L 15 68 L 15 32 Z" fill="none" stroke="url(#gradient-logo)" stroke-width="12" stroke-linejoin="round"/>
+                <path d="M 45 15 L 75 32 L 75 68 L 45 50 Z" fill="url(#gradient-logo)" opacity="0.85"/>
+                <!-- Extensión alargada del mástil izquierdo para marcar la P claramente -->
+                <path d="M 15 32 L 15 110" stroke="var(--acento-morado)" stroke-width="12" stroke-linecap="round"/>
+                <path d="M 15 50 L 45 50" stroke="var(--acento-morado)" stroke-width="10" stroke-linecap="round" opacity="0.5"/>
             </svg>
-            <span class="logo-text">ETRUCS</span>
+            <span class="logo-text" style="margin-left: 6px;">ETRUCS</span>
         </div>
 
         <nav class="nav-links">
             <a href="#sobre-mi" class="nav-item">Biografía</a>
             <a href="#mis-videos" class="nav-item">Mis Videos</a>
             <a href="#contacto" class="nav-item">Contacto</a>
+            <!-- Conmutador de Modo Claro/Oscuro -->
             <button id="theme-toggle" class="toggle-btn" aria-label="Cambiar tema">🌙</button>
         </nav>
     </header>
@@ -78,7 +50,7 @@
         </div>
     </section>
 
-    <!-- SCRIPT PARA EL CAMBIO DE MODO -->
+    <!-- SCRIPT INTERACTIVO PARA EL CAMBIO DE MODO -->
     <script>
         const toggleBtn = document.getElementById('theme-toggle');
         const htmlElement = document.documentElement;
