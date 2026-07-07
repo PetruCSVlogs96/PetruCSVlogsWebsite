@@ -30,6 +30,7 @@
             <span class="logo-text" style="font-weight: 900; font-size: 1.8rem; color: #fff; letter-spacing: 1px;">ETRUCS</span>
         </div>
         <nav class="nav-links" style="display: flex; gap: 1.5rem; align-items: center;">
+            <a href="#inicio" class="nav-item">Inicio</a>
             <a href="#sobre-mi" class="nav-item">Biografía</a>
             <a href="#mis-videos" class="nav-item">Mis Videos</a>
             <a href="#contacto" class="nav-item">Contacto</a>
@@ -37,12 +38,24 @@
         </nav>
     </header>
 
-    <!-- SECCIÓN DE MIS VIDEOS -->
-    <section id="mis-videos" style="padding: 3rem 2rem; max-width: 1200px; margin: 0 auto;">
+    <!-- FONDO ANIMADO LÍQUIDO -->
+    <div class="background-glow"></div>
+
+    <!-- APARTADO DE INICIO (BIENVENIDA) -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Hola, soy <span class="text-gradient">PetruCS</span></h1>
+            <p>Creador de contenido, vlogger y apasionado por el diseño digital.</p>
+            <a href="#mis-videos" class="btn-primary">Ver mi trabajo</a>
+        </div>
+    </section>
+
+    <!-- APARTADO DE MIS VIDEOS -->
+    <section id="mis-videos" style="padding: 4rem 2rem; max-width: 1200px; margin: 0 auto;">
         
-        <!-- CABECERA: Perfil chiquito, nombre al lado, suscríbete abajo -->
+        <!-- CABECERA DE TU CANAL: Perfil chiquito, nombre al lado, botón abajo -->
         <div class="youtube-profile-header" style="display: flex; align-items: center; gap: 15px; margin-bottom: 2rem;">
-            <!-- Perfil Chiquito -->
+            <!-- Perfil Chiquito (60px) -->
             <div class="channel-avatar" style="width: 60px; height: 60px; flex-shrink: 0; border-radius: 50%; overflow: hidden;">
                 <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
                     <circle cx="50" cy="50" r="48" fill="#7c4dff" />
@@ -50,7 +63,7 @@
                 </svg>
             </div>
             
-            <!-- Nombre y Suscríbete abajo -->
+            <!-- Nombre y Suscríbete abajo en vertical -->
             <div class="channel-info-block" style="display: flex; flex-direction: column; gap: 5px; text-align: left;">
                 <h2 class="channel-name" style="margin: 0; font-size: 1.4rem; color: #fff; font-weight: 700; line-height: 1.2;">YO SOY PETRUCS VLOGS</h2>
                 <a href="https://www.youtube.com/@PETRUCSVLOGS_OFICIAL" target="_blank" class="btn-subscribe" style="display: inline-flex; align-items: center; width: fit-content; background: #cc0000; color: #ffffff; padding: 5px 12px; border-radius: 18px; font-weight: bold; text-decoration: none; font-size: 0.85rem;">
@@ -63,7 +76,7 @@
 
         <h3 class="videos-title" style="color: #fff; margin-bottom: 1.5rem; font-size: 1.5rem;">Videos Destacados</h3>
 
-        <!-- CUADRÍCULA DE VIDEOS (Usa los dos links que me pasaste) -->
+        <!-- CUADRÍCULA DE VIDEOS -->
         <div class="videos-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
             
             <!-- Tarjeta Video 1 -->
