@@ -1,5 +1,7 @@
-/* CONFIGURACIÓN DE COLORES Y VARIABLES */
-:root[data-theme="dark"] {
+/* ==========================================================================
+   VARIABLES DE COLOR POR DEFECTO (MODO OSCURO)
+   ========================================================================== */
+:root {
     --bg-principal: #0d0d11;
     --bg-tarjetas: #16161a;
     --texto-principal: #ffffff;
@@ -13,7 +15,15 @@
                        radial-gradient(circle at 50% 40%, #141226 0%, transparent 50%);
 }
 
-:root[data-theme="light"] {
+/* ==========================================================================
+   LÓGICA DEL INTERRUPTOR (MODO CLARO AL HACER CHECKED)
+   ========================================================================== */
+.theme-checkbox-input {
+    display: none; /* Ocultamos el checkbox de la vista */
+}
+
+/* Cuando se activa el interruptor, cambian los valores de las variables en los hermanos siguientes */
+.theme-checkbox-input:checked ~ * {
     --bg-principal: #f4f4f9;
     --bg-tarjetas: #ffffff;
     --texto-principal: #1a1a24;
@@ -27,7 +37,9 @@
                        radial-gradient(circle at 50% 40%, #eef2ff 0%, transparent 50%);
 }
 
-/* CONFIGURACIÓN GENERAL INTERFAZ */
+/* ==========================================================================
+   CONFIGURACIÓN GENERAL INTERFAZ
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
@@ -40,7 +52,7 @@ body {
     background-color: var(--bg-principal);
     color: var(--texto-principal);
     min-height: 100vh;
-    overflow-y: auto; /* Permite scroll vertical normal si el contenido crece */
+    overflow-y: auto;
     overflow-x: hidden;
     position: relative;
 }
@@ -114,15 +126,15 @@ body {
     color: var(--texto-principal);
 }
 
-/* BOTÓN DE CLARO / OSCURO */
+/* BOTÓN DE CONTROL DE TEMA (LABEL) */
 .toggle-btn {
     background: transparent;
     border: 1px solid var(--borde);
     font-size: 1.2rem;
     cursor: pointer;
-    padding: 5px 10px;
+    padding: 5px 12px;
     border-radius: 20px;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     transition: transform 0.2s, background-color 0.3s;
@@ -133,20 +145,28 @@ body {
     background-color: var(--borde);
 }
 
-/* LÓGICA DE APARTADOS INDEPENDIENTES (:TARGET) */
+/* Alternancia de iconos de Luna/Sol con puro CSS */
+.toggle-btn .icon-light { display: none; }
+.toggle-btn .icon-dark { display: inline; }
+
+.theme-checkbox-input:checked ~ .navbar .toggle-btn .icon-light { display: inline; }
+.theme-checkbox-input:checked ~ .navbar .toggle-btn .icon-dark { display: none; }
+
+/* ==========================================================================
+   LÓGICA DE APARTADOS INDEPENDIENTES (:TARGET)
+   ========================================================================== */
 .main-content {
     position: relative;
     width: 100%;
-    padding-bottom: 5rem; /* Espacio extra abajo para que no corte al scrollear */
+    padding-bottom: 5rem;
 }
 
 .content-section {
-    display: none; /* Oculta todas las secciones por defecto */
+    display: none;
     width: 100%;
     animation: fadeIn 0.5s ease forwards;
 }
 
-/* Reglas para mostrar solo el apartado activo */
 .content-section:first-child,
 #inicio:target {
     display: block;
@@ -237,7 +257,7 @@ body:has(#contacto:target) #inicio {
     transform: translateY(-2px);
 }
 
-/* CABECERA YOUTUBE CHICA */
+/* CABECERA YOUTUBE */
 .youtube-profile-header {
     display: flex;
     align-items: center;
