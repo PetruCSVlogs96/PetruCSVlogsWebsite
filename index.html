@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="dark">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,10 +8,10 @@
 </head>
 <body>
 
-    <!-- FONDO ANIMADO LÍQUIDO (Se mantiene fijo detrás de todos los apartados) -->
+    <input type="checkbox" id="theme-toggle" class="theme-checkbox-input">
+
     <div class="background-glow"></div>
 
-    <!-- BARRA DE NAVEGACIÓN (NAVBAR) -->
     <header class="navbar">
         <div class="logo-container">
             <svg viewBox="10 10 75 115" class="logo-svg">
@@ -37,15 +37,16 @@
             <a href="#biografia" class="nav-item">Biografía</a>
             <a href="#mis-videos" class="nav-item">Mis Videos</a>
             <a href="#contacto" class="nav-item">Contacto</a>
-            <!-- Botón interactivo para cambiar el tema -->
-            <button id="theme-toggle" class="toggle-btn">🌙</button>
+            
+            <label for="theme-toggle" class="toggle-btn">
+                <span class="icon-dark">🌙</span>
+                <span class="icon-light">☀️</span>
+            </label>
         </nav>
     </header>
 
-    <!-- CONTENEDOR PRINCIPAL DE LOS APARTADOS -->
     <main class="main-content">
 
-        <!-- 1. APARTADO DE INICIO (BIENVENIDA) -->
         <section id="inicio" class="content-section hero">
             <div class="hero-content">
                 <h1>Hola, soy <span class="text-gradient">PetruCS</span></h1>
@@ -54,7 +55,6 @@
             </div>
         </section>
 
-        <!-- 2. APARTADO DE BIOGRAFÍA -->
         <section id="biografia" class="content-section">
             <div class="section-container">
                 <h2 class="section-title">Sobre Mí</h2>
@@ -64,11 +64,9 @@
             </div>
         </section>
 
-        <!-- 3. APARTADO DE MIS VIDEOS -->
         <section id="mis-videos" class="content-section">
             <div class="section-container">
                 
-                <!-- Cabecera de YouTube: Perfil chiquito con datos alineados a un lado -->
                 <div class="youtube-profile-header">
                     <div class="channel-avatar">
                         <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -88,10 +86,8 @@
 
                 <h3 class="videos-title">Videos Destacados</h3>
 
-                <!-- Cuadrícula de Videos con tus miniaturas y enlaces -->
                 <div class="videos-grid">
                     
-                    <!-- Tarjeta Video 1 -->
                     <div class="video-card" onclick="window.open('https://youtu.be/kJlbfkOOVSw', '_blank')">
                         <div class="thumbnail-container">
                             <img src="https://img.youtube.com/vi/kJlbfkOOVSw/maxresdefault.jpg" alt="Miniatura Video 1">
@@ -102,7 +98,6 @@
                         </div>
                     </div>
 
-                    <!-- Tarjeta Video 2 -->
                     <div class="video-card" onclick="window.open('https://youtu.be/Zpigrf6mVH8', '_blank')">
                         <div class="thumbnail-container">
                             <img src="https://img.youtube.com/vi/Zpigrf6mVH8/maxresdefault.jpg" alt="Miniatura Video 2">
@@ -117,7 +112,6 @@
             </div>
         </section>
 
-        <!-- 4. APARTADO DE CONTACTO -->
         <section id="contacto" class="content-section">
             <div class="section-container">
                 <h2 class="section-title">Contacto</h2>
@@ -129,23 +123,6 @@
         </section>
 
     </main>
-
-    <!-- SCRIPT PARA INTERCAMBIO DE MODO CLARO / OSCURO -->
-    <script>
-        const toggleBtn = document.getElementById('theme-toggle');
-        const htmlElement = document.documentElement;
-        
-        toggleBtn.addEventListener('click', () => {
-            const currentTheme = htmlElement.getAttribute('data-theme');
-            if (currentTheme === 'dark') {
-                htmlElement.setAttribute('data-theme', 'light');
-                toggleBtn.textContent = '☀️';
-            } else {
-                htmlElement.setAttribute('data-theme', 'dark');
-                toggleBtn.textContent = '🌙';
-            }
-        });
-    </script>
 
 </body>
 </html>
