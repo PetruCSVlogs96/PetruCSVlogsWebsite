@@ -8,11 +8,15 @@
 </head>
 <body>
 
+    <!-- HEADER / NAVEGACIÓN -->
     <header class="navbar">
         <div class="logo-container">
+            <!-- La 'P' Geométrica Abstracta (Corregida) -->
             <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20,15 H65 C85,15 85,45 65,45 H20 Z" fill="url(#gradient-logo)" />
-                <path d="M20,45 H45 V85 H20 Z" fill="var(--acento-morado)" />
+                <!-- Bloque superior-derecho de la P -->
+                <path d="M 20 15 H 60 A 25 25 0 0 1 60 50 H 20 Z" fill="url(#gradient-logo)" />
+                <!-- Bloque inferior-izquierdo del mástil con corte diagonal -->
+                <path d="M 20 50 L 50 50 H 50 V 85 L 20 85 Z" fill="var(--acento-morado)" />
                 <defs>
                     <linearGradient id="gradient-logo" x1="0%" y1="0%" x2="100%" y2="100%">
                         <stop offset="0%" stop-color="var(--acento-morado)" />
@@ -27,12 +31,15 @@
             <a href="#sobre-mi" class="nav-item">Biografía</a>
             <a href="#mis-videos" class="nav-item">Mis Videos</a>
             <a href="#contacto" class="nav-item">Contacto</a>
+            <!-- Botón interruptor de Modo Claro/Oscuro -->
             <button id="theme-toggle" class="toggle-btn" aria-label="Cambiar tema">🌙</button>
         </nav>
     </header>
 
+    <!-- FONDO ANIMADO LÍQUIDO -->
     <div class="background-glow"></div>
 
+    <!-- SECCIÓN HERO (BIENVENIDA) -->
     <section class="hero">
         <div class="hero-content">
             <h1>Hola, soy <span class="text-gradient">PetruCS</span></h1>
@@ -41,6 +48,7 @@
         </div>
     </section>
 
+    <!-- SCRIPT PARA EL CAMBIO DE MODO -->
     <script>
         const toggleBtn = document.getElementById('theme-toggle');
         const htmlElement = document.documentElement;
